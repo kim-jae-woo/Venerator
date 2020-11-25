@@ -1,0 +1,23 @@
+{   
+"module"	: "test",
+"clock"     : "pclk",
+"reset"     : "preset",
+"active"    : "high",
+"registers"	:
+    [   
+        {
+            "name"      : "CFG0",
+            "offset"    : "0x0",
+            "bitfiled"  : "[7:0]",
+            "default"   : "0x0",
+			"output"	: "yes"
+        },
+        {
+            "name"      : "CFG1",
+            "offset"    : "0x4",
+            "bitfiled"  : "[31:0]",
+            "default"   : "0x0",
+			"output"	: "no"
+        }
+    ]
+}
