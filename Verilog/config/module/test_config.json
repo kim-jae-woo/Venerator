@@ -8,6 +8,7 @@
 "sort"      	: "dut",
 "name"			: "test",
 "extension"		: "v",
+"regconfig"     : "./../config/reg/test_reg_config.json",
 "defines":[
             {
                 "content"   : "`timescale=1ns/10ps"
@@ -15,119 +16,58 @@
     ],
 "clocks":[
 			{
-				"name"	: "clk_sys0",
-				"dir"	: "input",
-                "bit"   : "1",
-	            "period": "100"
+				"name"	    : "clk_sys0",
+				"dir"	    : "input",
+                "bit"       : "1",
+	            "period"    : "100"
 			},
             {
-				"name"	: "clk_sys1",
-				"dir"	: "output",
-                "bit"   : "1",
-	            "period": "50"
+				"name"	    : "clk_sys1",
+				"dir"	    : "output",
+                "bit"       : "1",
+	            "period"    : "50"
             },
             {
-				"name"	: "clk_sys2",
-				"dir"	: "inout",
-                "bit"   : "1",
-	            "period": "50"
+				"name"	    : "clk_sys2",
+				"dir"	    : "inout",
+                "bit"       : "1",
+	            "period"    : "50"
+            },
+            {
+				"name"	    : "pclk",
+				"dir"	    : "inout",
+                "bit"       : "1",
+	            "period"    : "50"
             }
 	],
 "resets":[
 			{
-				"name"	: "rstn_sys0",
-				"dir"	: "input",
-                "bit"   : "1",
-				"type"	: "high",
-	            "time"	: "1000"
+				"name"	    : "rstn_sys0",
+				"dir"	    : "input",
+                "bit"       : "1",
+				"type"	    : "high",
+	            "time"	    : "1000"
 			},
             {
-				"name"	: "rstn_sys1",
-				"dir"	: "output",
-                "bit"   : "1",
-				"type"	: "low",
-	            "time"	: "500"
+				"name"	    : "rstn_sys1",
+				"dir"	    : "output",
+                "bit"       : "1",
+				"type"	    : "low",
+	            "time"	    : "500"
 			},
             {
-				"name"	: "rstn_sys2",
-				"dir"	: "inout",
-                "bit"   : "1",
-				"type"	: "low",
-	            "time"	: "500"
-			}
-	],
-"AHBs":[
-			{
-				"name"		: "0",
-				"type"		: "master",
-	            "version"	: "3",
-				"data"		: "32",
-				"address"	: "32",
-				"hsel"		: "reg",
-				"haddr"		: "reg",
-				"hwrite"	: "reg",
-				"hsize"		: "reg",
-				"hburst"	: "reg",
-				"hprot"		: "reg",
-				"htrans"	: "reg",
-				"hmastlock"	: "reg",
-				"hwdata"	: "reg",
-				"hreadyout"	: "reg",
-				"hrdata"	: "",
-				"hready"	: "",
-				"hresp"		: ""
+				"name"	    : "rstn_sys2",
+				"dir"	    : "inout",
+                "bit"       : "1",
+				"type"	    : "low",
+	            "time"	    : "500"
 			},
-			{
-				"name"		: "1",
-				"type"		: "slave",
-	            "version"	: "4",
-				"data"		: "32",
-				"address"	: "32",
-				"hsel"		: "",
-				"haddr"		: "",
-				"hwrite"	: "",
-				"hsize"		: "",
-				"hburst"	: "",
-				"hprot"		: "",
-				"htrans"	: "",
-				"hmastlock"	: "",
-				"hwdata"	: "",
-				"hreadyout"	: "reg",
-				"hrdata"	: "reg",
-				"hready"	: "reg",
-				"hresp"		: "reg"
-			}
-	],
-"APBs":[
-			{
-				"name"		: "0",
-				"type"		: "master",
-	            "version"	: "3",
-				"address"	: "32",
-				"psel"		: "reg",
-				"penable"	: "reg",
-				"pwrite"	: "reg",
-				"pstrb"		: "reg",
-				"paddr"		: "reg",
-				"pwdata"	: "reg",
-				"prdata"	: "",
-				"pready"	: "",
-				"pslverr"	: ""
-			},
-			{
-				"name"		: "1",
-				"type"		: "slave",
-				"address"	: "32",
-	            "version"	: "4",
-				"psel"		: "",
-				"penable"	: "",
-				"pwrite"	: "",
-				"pstrb"		: "",
-				"paddr"		: "",
-				"pwdata"	: "",
-				"prdata"	: "reg",
-				"pready"	: "",
-				"pslverr"	: ""
+            {
+				"name"	    : "preset",
+				"dir"	    : "inout",
+                "bit"       : "1",
+				"type"	    : "low",
+	            "time"	    : "500"
 			}
 	],
 "ports":[
@@ -135,47 +75,42 @@
 		    	"name"	: "in0",
                 "dir"	: "input",
 	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
+                "reg"   : ""
 		    },
 		    {
 		    	"name"	: "in1",
                 "dir"  : "input",
 	            "bit"	: "1",
-                "reg"   : "",
-                "last"  : ""
+                "reg"   : ""
 		    },
 		    {
 		    	"name"	: "out0",
                 "dir"  : "output",
 	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
+                "reg"   : ""
 		    },
 		    {
 		    	"name"	: "out1",
                 "dir"  : "output",
 	            "bit"	: "1",
-                "reg"   : "true",
-                "last"  : ""
+                "reg"   : "true"
 		    },
 		    {
 		    	"name"	: "inout0",
                 "dir"  : "inout",
 	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
+                "reg"   : ""
 		    },
 		    {
 		    	"name"	: "inout1",
                 "dir"  : "inout",
 	            "bit"	: "1",
-                "reg"   : "",
-                "last"  : "yes"
+                "reg"   : ""
 		    }
 	],
 "parameters":[
-		    {
+            {
+
 		    	"name"	: "TEST0",
 	            "value"	: "10"
 		    },

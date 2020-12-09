@@ -3,8 +3,7 @@
 "clock"     : "pclk",
 "reset"     : "preset",
 "active"    : "high",
-"registers"	:
-    [   
+"registers"	:[   
         {
             "name"      : "CFG0",
             "offset"    : "0x0",

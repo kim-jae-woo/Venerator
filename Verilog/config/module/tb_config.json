@@ -8,6 +8,7 @@
 "sort"      	: "tb",
 "name"			: "tb_test",
 "extension"		: "v",
+"regconfig"     : "",
 "defines":[
             {
                 "content"   : "`timescale=1ns/10ps"
@@ -54,80 +55,6 @@
                 "bit"   : "1",
 				"type"	: "low",
 	            "time"	: "500"
-			}
-	],
-"AHBs":[
-			{
-				"name"		: "0",
-				"type"		: "master",
-	            "version"	: "3",
-				"data"		: "32",
-				"address"	: "32",
-				"hsel"		: "reg",
-				"haddr"		: "reg",
-				"hwrite"	: "reg",
-				"hsize"		: "reg",
-				"hburst"	: "reg",
-				"hprot"		: "reg",
-				"htrans"	: "reg",
-				"hmastlock"	: "reg",
-				"hwdata"	: "reg",
-				"hreadyout"	: "reg",
-				"hrdata"	: "",
-				"hready"	: "",
-				"hresp"		: ""
-			},
-			{
-				"name"		: "1",
-				"type"		: "slave",
-	            "version"	: "4",
-				"data"		: "32",
-				"address"	: "32",
-				"hsel"		: "",
-				"haddr"		: "",
-				"hwrite"	: "",
-				"hsize"		: "",
-				"hburst"	: "",
-				"hprot"		: "",
-				"htrans"	: "",
-				"hmastlock"	: "",
-				"hwdata"	: "",
-				"hreadyout"	: "reg",
-				"hrdata"	: "reg",
-				"hready"	: "reg",
-				"hresp"		: "reg"
-			}
-	],
-"APBs":[
-			{
-				"name"		: "0",
-				"type"		: "master",
-	            "version"	: "3",
-				"address"	: "32",
-				"psel"		: "reg",
-				"penable"	: "reg",
-				"pwrite"	: "reg",
-				"pstrb"		: "reg",
-				"paddr"		: "reg",
-				"pwdata"	: "reg",
-				"prdata"	: "",
-				"pready"	: "",
-				"pslverr"	: ""
-			},
-			{
-				"name"		: "1",
-				"type"		: "slave",
-				"address"	: "32",
-	            "version"	: "4",
-				"psel"		: "",
-				"penable"	: "",
-				"pwrite"	: "",
-				"pstrb"		: "",
-				"paddr"		: "",
-				"pwdata"	: "",
-				"prdata"	: "reg",
-				"pready"	: "",
-				"pslverr"	: ""
 			}
 	],
 "ports":[
@@ -195,7 +122,7 @@
 "registers":[
 		    {
 		    	"name"	: "",
-	            "type"	: "apb"
+	            "type"	: ""
 		    }
 	],
 "templates":[
@@ -211,8 +138,9 @@
 	],
 "forces":[
             {
-                "path"  : "",
-                "value" : ""
+                "path"  : "dut.a",
+                "time"  : "100",
+                "value" : "0"
             }
     ],
 "waves":[
