@@ -15,6 +15,7 @@ from datetime import datetime
 ###################################
 
 modulePath = "./../config/module/"
+templatePath = "./../templates/"
 outputPath = "./build/"
 
 ###################################
@@ -173,13 +174,11 @@ def genSignal(f, jsonMunch, regList):
             continue
         else:
             if signal.bit == "1":
-                f.write("\t{}\t\t\t\t\t\t{};\n".format(signal.type, signal.name))
+                f.write("    {} {};\n".format(signal.type, signal.name))
             else:
-                f.write("\t{}\t\t[{}:0]\t\t{};\n".format(signal.type, int(signal.bit)-1, signal.name))
-
-    f.write("\n")
+                f.write("    {} [{}:0] {};\n".format(signal.type, int(signal.bit)-1, signal.name))
     for reg in regList:
-        f.write("\treg\t\t{}\t\t{};\n".format(reg.bitfiled, reg.name))
+        f.write("    reg {} {};\n".format(reg.bitfiled, reg.name))
     f.write("\n")
 
 ###################################
@@ -187,14 +186,17 @@ def genSignal(f, jsonMunch, regList):
 ###################################
 
 def genForce(f, jsonMunch):
-    if jsonMunch.forces != "":
-        f.write("\n")
-        f.write("//==========================================\n")
-        f.write("// Forces\n")
-        f.write("//==========================================\n\n")
-        for force in jsonMunch.forces:
-            if force.path != "":
-                f.write("\tinitial #{} force {} = {};\n".format(force.time, force.path, force.value))
+    for force in jsonMunch.forces:
+        if force.path != "":
+            f.write("\tinitial #{} force {} = {};\n".format(force.time, force.path, force.value))
+
+###################################
+# Generate Templates
+###################################
+
+def genTemplate(f, jsonMunch):
+    if jsonMunch.template != "":
+        ft=open(templatePath+jsonMunch.template, 'r')
 
 ###################################
 # Generate Registers
@@ -209,15 +211,13 @@ def genReg(f, module, jsonMunch):
             if jsonMunch.active == "high":
                 f.write("\n\talways @(posedge {} or posedge {})\n".format(jsonMunch.clock, jsonMunch.reset))
                 f.write("\t\tif({})\n".format(jsonMunch.reset))
-                f.write("\t\t\t{} <= {};\n".format(reg.name, reg.default))
-                f.write("\t\telse if(apb_wr && paddr == {})\n".format(reg.offset))
-                f.write("\t\t\t{} <= PWDATA{};\n".format(reg.name, reg.bitfiled))
             else:
                 f.write("\n\talways @(posedge {} or negedge {})\n".format(jsonMunch.clock, jsonMunch.reset))
                 f.write("\t\tif(!{})\n".format(jsonMunch.reset))
-                f.write("\t\t\t{} <= {};\n".format(reg.name, reg.default))
-                f.write("\t\telse if(apb_wr && paddr == {})\n".format(reg.offset))
-                f.write("\t\t\t{} <= PWDATA{};\n".format(reg.name, reg.bitfiled))
+            f.write("\t\t\t{} <= {};\n".format(reg.name, int(reg.default, 16)))
+            f.write("\t\telse if(apb_wr && paddr == {})\n".format(int(reg.offset, 16)))
+            f.write("\t\t\t{} <= PWDATA[{}:{}];\n".format(reg.name, int(reg.bitfiled)-1, reg.bitoffset))
+    f.write("\n")
 
 ###################################
 # Generate wave dump
