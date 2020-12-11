@@ -9,6 +9,7 @@
 "name"			: "test",
 "extension"		: "v",
 "regconfig"     : "./../config/reg/test_reg_config.json",
+"template"      : "test.v",
 "defines":[
             {
                 "content"   : "`timescale=1ns/10ps"
