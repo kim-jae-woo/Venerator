@@ -144,7 +144,7 @@ def genPort(f, jsonMunch, portList, portRegList):
         f.write("\toutput reg [{}:{}] {}\n".format(int(reg.bitfiled)-1, reg.bitoffset,reg.name))
       else:
         f.write("\toutput reg [{}:{}] {},\n".format(int(reg.bitfiled)-1, reg.bitoffset,reg.name))
-    f.write(");\n")
+    f.write(");\n\n")
 
 ###################################
 # Generate parameter
