@@ -16,7 +16,7 @@ from datetime import datetime
 
 modulePath = "./../config/module/"
 templatePath = "./../templates/"
-outputPath = "./build/"
+outputPath = "./../../build/"
 
 ###################################
 # get file list
@@ -141,20 +141,17 @@ def genPort(f, jsonMunch, portList, portRegList):
         idx = 0
         for reg in portRegList:
             if idx == len(portRegList) - 1 :
-                f.write("\toutput\treg\t{}\t\t{}\n".format(reg.bitfiled, reg.name))
+                f.write("\toutput\treg\t[{}:{}]\t\t{}\n".format(int(reg.bitfiled)-1, reg.bitoffset,reg.name))
             else:
-                f.write("\toutput\treg\t{}\t\t{},\n".format(reg.bitfiled, reg.name))
+                f.write("\toutput\treg\t[{}:{}]\t\t{},\n".format(int(reg.bitfiled)-1, reg.bitoffset,reg.name))
         f.write(");\n")
 
 ###################################
 # Generate parameter
 ###################################
 
-def genParam(f, jsonMunch):
-    f.write("//==========================================\n")
-    f.write("// Parameters\n")
-    f.write("//==========================================\n\n")
-    for param in jsonMunch.parameters:
+def genParam(f, params):
+    for param in params:
         if param.name == "":
             continue
         else:
@@ -165,10 +162,6 @@ def genParam(f, jsonMunch):
 ###################################
 
 def genSignal(f, jsonMunch, regList):
-    f.write("\n")
-    f.write("//==========================================\n")
-    f.write("// Signals\n")
-    f.write("//==========================================\n\n")
     for signal in jsonMunch.signals:
         if signal.name == "":
             continue
@@ -262,6 +255,18 @@ for modules in moduleList:
         for port in moduleMunch.ports:
             portList.append(port)
 
+        paramList = []
+        for param in moduleMunch.parameters:
+            paramList.append(param)
+
+        signalList = []
+        for signal in moduleMunch.signals:
+            paramList.append(signal)
+
+        forceList = []
+        for force in moduleMunch.forces:
+            forceList.append(force)
+
         if moduleMunch.regconfig != "":
             print("Generating register "+ moduleMunch.regconfig)
             with open(moduleMunch.regconfig) as regf:
@@ -280,7 +285,7 @@ for modules in moduleList:
     genClock(genf, moduleMunch)
     genReset(genf, moduleMunch)
     genPort(genf, moduleMunch, portList, portRegisterList)
-    genParam(genf, moduleMunch)
+    genParam(genf, paramList)
     genSignal(genf, moduleMunch, registerList)
     genReg(genf, moduleMunch, regMunch)
     genForce(genf, moduleMunch)
