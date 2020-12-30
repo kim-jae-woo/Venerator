@@ -1,163 +1,172 @@
 {   
-"project"		: "template",
-"designer"		: "KimJaewoo",
-"description"	: "for verilog designer",
-"company"		: "Semifive",
-"email"			: "leo.kim@semifive.com",
-"keyword"		: "module",
-"sort"      	: "dut",
-"name"			: "test",
-"extension"		: "v",
-"regconfig"     : "./../config/reg/test_reg_config.json",
-"template"      : "test.v",
-"defines":[
-            {
-                "content"   : "`timescale=1ns/10ps"
-            }
+  "project"		  : "template",
+  "designer"		: "KimJaewoo",
+  "description" : "for verilog designer",
+  "company"		  : "Semifive",
+  "email"			  : "leo.kim@semifive.com",
+  "keyword"		  : "module",
+  "sort"      	: "dut",
+  "name"			  : "test",
+  "extension"		: "v",
+  "regconfig"   : "./../config/reg/test_reg_config.json",
+  "template"    : "test.v",
+  "defines":
+    [
+      {
+        "content" : "`timescale=1ns/10ps"
+      }
     ],
-"clocks":[
+  "clocks":
+    [
+	    {
+			  "name"	: "clk_sys0",
+			  "dir"	  : "input",
+        "bit"   : "1",
+	      "period": "100"
+			},
+      {
+				"name"	: "clk_sys1",
+				"dir"	  : "output",
+        "bit"   : "1",
+	      "period": "50"
+      },
+      {
+				"name"	: "clk_sys2",
+				"dir"	  : "inout",
+        "bit"   : "1",
+	      "period": "50"
+      },
+      {
+				"name"	: "pclk",
+				"dir"	  : "inout",
+        "bit"   : "1",
+	      "period": "50"
+      }
+    ],
+  "resets":
+    [
 			{
-				"name"	    : "clk_sys0",
-				"dir"	    : "input",
-                "bit"       : "1",
-	            "period"    : "100"
+				"name"	: "rstn_sys0",
+				"dir"	  : "input",
+        "bit"   : "1",
+				"type"	: "high",
+	      "time"	: "1000"
 			},
-            {
-				"name"	    : "clk_sys1",
-				"dir"	    : "output",
-                "bit"       : "1",
-	            "period"    : "50"
-            },
-            {
-				"name"	    : "clk_sys2",
-				"dir"	    : "inout",
-                "bit"       : "1",
-	            "period"    : "50"
-            },
-            {
-				"name"	    : "pclk",
-				"dir"	    : "inout",
-                "bit"       : "1",
-	            "period"    : "50"
-            }
-	],
-"resets":[
-			{
-				"name"	    : "rstn_sys0",
-				"dir"	    : "input",
-                "bit"       : "1",
-				"type"	    : "high",
-	            "time"	    : "1000"
+      {
+				"name"	: "rstn_sys1",
+				"dir"	  : "output",
+        "bit"   : "1",
+				"type"	: "low",
+	      "time"	: "500"
 			},
-            {
-				"name"	    : "rstn_sys1",
-				"dir"	    : "output",
-                "bit"       : "1",
-				"type"	    : "low",
-	            "time"	    : "500"
+      {
+				"name"	: "rstn_sys2",
+				"dir"	  : "inout",
+        "bit"   : "1",
+				"type"	: "low",
+	      "time"	: "500"
 			},
-            {
-				"name"	    : "rstn_sys2",
-				"dir"	    : "inout",
-                "bit"       : "1",
-				"type"	    : "low",
-	            "time"	    : "500"
-			},
-            {
-				"name"	    : "preset",
-				"dir"	    : "inout",
-                "bit"       : "1",
-				"type"	    : "low",
-	            "time"	    : "500"
+      {
+				"name"	: "preset",
+				"dir"	  : "inout",
+        "bit"   : "1",
+				"type"	: "low",
+	      "time"  : "500"
 			}
-	],
-"ports":[
-		    {
-		    	"name"	: "in0",
-                "dir"	: "input",
-	            "bit"	: "10",
-                "reg"   : ""
-		    },
-		    {
-		    	"name"	: "in1",
-                "dir"  : "input",
-	            "bit"	: "1",
-                "reg"   : ""
-		    },
-		    {
-		    	"name"	: "out0",
-                "dir"  : "output",
-	            "bit"	: "10",
-                "reg"   : ""
-		    },
-		    {
-		    	"name"	: "out1",
-                "dir"  : "output",
-	            "bit"	: "1",
-                "reg"   : "true"
-		    },
-		    {
-		    	"name"	: "inout0",
-                "dir"  : "inout",
-	            "bit"	: "10",
-                "reg"   : ""
-		    },
-		    {
-		    	"name"	: "inout1",
-                "dir"  : "inout",
-	            "bit"	: "1",
-                "reg"   : ""
-		    }
-	],
-"parameters":[
-            {
-
-		    	"name"	: "TEST0",
-	            "value"	: "10"
-		    },
-		    {
-		    	"name"	: "TEST1",
-	            "value"	: "20"
-		    },
-		    {
-		    	"name"	: "TEST2",
-	            "value"	: "30"
-		    }
-	],
-"signals":[
-            {
-		    	"name"	: "wire0",
-                "bit"   : "10",
-	            "type"	: "wire"
-            },
-            {
-		    	"name"	: "reg0",
-                "bit"   : "10",
-	            "type"	: "reg"
-            }
+	  ],
+  "ports":
+    [
+		  {
+		    "name": "in0",
+        "dir"	: "input",
+	      "bit"	: "10",
+        "reg" : ""
+		  },
+		  {
+		    "name": "in1",
+        "dir" : "input",
+	      "bit"	: "1",
+        "reg" : ""
+      },
+		  {
+		    "name": "out0",
+        "dir" : "output",
+	      "bit"	: "10",
+        "reg" : ""
+      },
+		  {
+        "name": "out1",
+        "dir" : "output",
+	      "bit"	: "1",
+        "reg" : "true"
+      },
+		  {
+		    "name": "inout0",
+        "dir" : "inout",
+	      "bit"	: "10",
+        "reg" : ""
+      },
+		  {
+		    "name": "inout1",
+        "dir" : "inout",
+	      "bit"	: "1",
+        "reg" : ""
+		  }
+	  ],
+  "parameters":
+    [
+      {
+		    "name"	: "TEST0",
+	      "value"	: "10"
+      },
+		  {
+		    "name"	: "TEST1",
+	      "value"	: "20"
+      },
+		  {
+		    "name"	: "TEST2",
+	      "value"	: "30"
+      }
+	  ],
+  "signals":'
+    [
+      {
+		    "name"	: "wire0",
+        "bit"   : "10",
+	      "type"	: "wire"
+      },
+      {
+		    "name"	: "reg0",
+        "bit"   : "10",
+	      "type"	: "reg"
+      }
     ],
-"templates":[
-            {
-                "path" : ""
-            }
+  "templates":
+    [
+      {
+        "path" : ""
+      }
     ],
-"submodules":[
-		    {
-		    	"path"	: "./test.v",
-	            "name"	: "1"
-		    }
-	],
-"forces":[
-            {
-                "path"  : "",
-                "value" : ""
-            }
+  "submodules":
+    [
+      {
+		    "path"	: "./test.v",
+	      "name"	: "1"
+		  }
+	  ],
+  "forces":
+    [
+      {
+        "path"  : "",
+        "value" : ""
+      }
     ],
-"waves":[
-		    {
-		    	"tool"	: "",
-		    	"option": ""
-		    }
-	]
+  "waves":
+    [
+		  {
+		    "tool"	: "",
+		    "option": ""
+      }
+	  ]
 }	
 	 

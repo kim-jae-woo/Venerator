@@ -1,153 +1,164 @@
 {   
-"project"		: "template",
-"designer"		: "KimJaewoo",
-"description"	: "for verilog designer",
-"company"		: "Semifive",
-"email"			: "leo.kim@semifive.com",
-"keyword"		: "module",
-"sort"      	: "tb",
-"name"			: "tb_test",
-"extension"		: "v",
-"regconfig"     : "",
-"defines":[
-            {
-                "content"   : "`timescale=1ns/10ps"
-            }
+  "project"		  : "template",
+  "designer"		: "KimJaewoo",
+  "description" : "for verilog designer",
+  "company"		  : "Semifive",
+  "email"			  : "leo.kim@semifive.com",
+  "keyword"		  : "module",
+  "sort"      	: "tb",
+  "name"			  : "tb_test",
+  "extension"		: "v",
+  "regconfig"   : "",
+  "defines":
+    [
+      {
+        "content" : "`timescale=1ns/10ps"
+      }
     ],
-"clocks":[
+  "clocks":
+    [
 			{
 				"name"	: "clk_sys0",
-				"dir"	: "input",
-                "bit"   : "1",
-	            "period": "100"
+				"dir"	  : "input",
+        "bit"   : "1",
+	      "period": "100"
 			},
-            {
+      {
 				"name"	: "clk_sys1",
-				"dir"	: "output",
-                "bit"   : "1",
-	            "period": "50"
-            },
-            {
+				"dir"	  : "output",
+        "bit"   : "1",
+	      "period": "50"
+      },
+      {
 				"name"	: "clk_sys2",
-				"dir"	: "inout",
-                "bit"   : "1",
-	            "period": "50"
-            }
-	],
-"resets":[
+				"dir"	  : "inout",
+        "bit"   : "1",
+	      "period": "50"
+      }
+	  ],
+  "resets":
+    [
 			{
 				"name"	: "rstn_sys0",
-				"dir"	: "input",
-                "bit"   : "1",
+				"dir"	  : "input",
+        "bit"   : "1",
 				"type"	: "high",
-	            "time"	: "1000"
+	      "time"	: "1000"
 			},
-            {
+      {
 				"name"	: "rstn_sys1",
-				"dir"	: "output",
-                "bit"   : "1",
+				"dir"	  : "output",
+        "bit"   : "1",
 				"type"	: "low",
-	            "time"	: "500"
+	      "time"	: "500"
 			},
-            {
+      {
 				"name"	: "rstn_sys2",
-				"dir"	: "inout",
-                "bit"   : "1",
+				"dir"	  : "inout",
+        "bit"   : "1",
 				"type"	: "low",
-	            "time"	: "500"
+	      "time"	: "500"
 			}
-	],
-"ports":[
-		    {
-		    	"name"	: "in0",
-                "dir"	: "input",
-	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
-		    },
-		    {
-		    	"name"	: "in1",
-                "dir"   : "input",
-	            "bit"	: "1",
-                "reg"   : "",
-                "last"  : ""
-		    },
-		    {
-		    	"name"	: "out0",
-                "dir"   : "output",
-	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
-		    },
-		    {
-		    	"name"	: "out1",
-                "dir"   : "output",
-	            "bit"	: "1",
-                "reg"   : "true",
-                "last"  : ""
-		    },
-		    {
-		    	"name"	: "inout0",
-                "dir"   : "inout",
-	            "bit"	: "10",
-                "reg"   : "",
-                "last"  : ""
-		    },
-		    {
-		    	"name"	: "inout1",
-                "dir"   : "inout",
-	            "bit"	: "1",
-                "reg"   : "",
-                "last"  : "yes"
-		    }
-	],
-"parameters":[
-		    {
-		    	"name"	: "",
-	            "value"	: ""
-		    }
-	],
-"signals":[
-            {
-		    	"name"	: "wire0",
-                "bit"   : "10",
-	            "type"	: "wire"
-            },
-            {
-		    	"name"	: "reg0",
-                "bit"   : "10",
-	            "type"	: "reg"
-            }
+	  ],
+  "ports":
+    [
+		  {
+		    "name"	: "in0",
+        "dir"	  : "input",
+	      "bit"	  : "10",
+        "reg"   : "",
+        "last"  : ""
+      },
+		  {
+		    "name"	: "in1",
+        "dir"   : "input",
+	      "bit"	  : "1",
+        "reg"   : "",
+        "last"  : ""
+      },
+		  {
+		    "name"	: "out0",
+        "dir"   : "output",
+	      "bit"	  : "10",
+        "reg"   : "",
+        "last"  : ""
+      },
+		  {
+		    "name"	: "out1",
+        "dir"   : "output",
+	      "bit"	  : "1",
+        "reg"   : "true",
+        "last"  : ""
+      },
+		  {
+		    "name"	: "inout0",
+        "dir"   : "inout",
+	      "bit"	  : "10",
+        "reg"   : "",
+        "last"  : ""
+      },
+		  {
+		    "name"	: "inout1",
+        "dir"   : "inout",
+	      "bit"	  : "1",
+        "reg"   : "",
+        "last"  : "yes"
+      }
+	  ],
+  "parameters":
+    [
+		  {
+		    "name"	: "",
+	      "value"	: ""
+      }
+	  ],
+  "signals":
+    [
+      {
+		    "name"	: "wire0",
+        "bit"   : "10",
+	      "type"	: "wire"
+      },
+      {
+		    "name"	: "reg0",
+        "bit"   : "10",
+	      "type"	: "reg"
+      }
     ],
-"registers":[
-		    {
-		    	"name"	: "",
-	            "type"	: ""
-		    }
-	],
-"templates":[
-            {
-                "path" : ""
-            }
+  "registers":
+    [
+		  {
+		    "name"	: "",
+	      "type"	: ""
+	    }
+	  ],
+  "templates":
+    [
+      {
+        "path" : ""
+      }
     ],
-"submodules":[
-		    {
-		    	"path"	: "./build/test.v",
-	            "name"	: "dut0"
-		    }
-	],
-"forces":[
-            {
-                "path"  : "dut.a",
-                "time"  : "100",
-                "value" : "0"
-            }
+  "submodules":
+    [
+		  {
+		    "path"	: "./build/test.v",
+	      "name"	: "dut0"
+	    }
+	  ],
+  "forces":
+    [
+      {
+        "path"  : "dut.a",
+        "time"  : "100",
+        "value" : "0"
+      }
     ],
-"waves":[
-		    {
-		    	"tool"	: "vcs",
-		    	"option": ""
-		    }
-	]
+  "waves":
+    [
+		  {
+		    "tool"	: "vcs",
+		    "option": ""
+      }
+	  ]
 }	
 	 
